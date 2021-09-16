@@ -3,10 +3,13 @@ import logo from './logo.svg';
 import './App.css';
 // import Product from './Components/Product/Product';
 import { ListContainer } from './style';
+import Filter from './components/filter/Filter';
+
 
 function App() {
   return (
     <div>
+
       <ListContainer>
         {this.state.product
         .filter(product => {
@@ -31,6 +34,9 @@ function App() {
           return <card key={product.id} product={product} />
         })}
       </ListContainer>
+
+      <Filter></Filter>
+
     </div>
   );
 }
