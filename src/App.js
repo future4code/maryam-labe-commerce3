@@ -1,24 +1,18 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import styled from 'styled-components';
+import Carrinho from "./Components/ShoppingCart"
+
+const ImagemMeme = styled.img`
+  width: 400px;
+  margin-top: 10px;
+  margin-left: 470px;
+`
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <ImagemMeme src="https://preview.redd.it/mslaumxlj5b41.jpg?auto=webp&s=5b121134932932de4a9267f6b54557b5f43679f5" alt="meme the office"/>
+      <Carrinho></Carrinho> 
     </div>
   );
 }
