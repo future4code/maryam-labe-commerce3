@@ -6,10 +6,7 @@ const ContainerCart = styled.div`
     padding: 8px;
     align-items: center;
     border: 1px solid black;
-    width: 250px;
-    height: 400px;
-    margin: auto;
-    margin-top: 10px;
+    height: 600px;
 `
 const InfosCarrinho = styled.div`
     display: grid;

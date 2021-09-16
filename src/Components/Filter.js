@@ -6,10 +6,7 @@ const ContainerFilter = styled.div `
     flex-direction: column;
     align-items: center;
     border: 1px solid black;
-    width: 300px;
     height: 600px;
-    margin: auto;
-    margin-top: 20px;
 
     input {
         margin-bottom: 10px;
