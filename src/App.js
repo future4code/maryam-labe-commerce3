@@ -1,5 +1,6 @@
 import React from 'react';
-import logo from './logo.svg';
+import styled from 'styled-components';
+import Carrinho from "./Components/ShoppingCart"
 import './App.css';
 // import Product from './Components/Product/Product';
 import { ListContainer } from './style';
@@ -9,6 +10,9 @@ import Filter from './components/filter/Filter';
 function App() {
   return (
     <div>
+
+      <Carrinho></Carrinho> 
+
 
       <ListContainer>
         {this.state.product
@@ -36,6 +40,7 @@ function App() {
       </ListContainer>
 
       <Filter></Filter>
+
 
     </div>
   );
