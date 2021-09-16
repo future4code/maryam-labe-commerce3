@@ -1,9 +1,38 @@
-"id":
-"title":
-"description":
-"price":
-"paymentMethods":
-"dueDate":
-"taken":
-"apiKeyId":
-
+[
+    {
+        "id": 1,
+	    "name": "Foguete da Missão Apollo 11",
+        "value": 10000.0,
+        "imageUrl": "https://picsum.photos/300/300?random=1"
+    },
+    {   
+        "id": 2,
+	    "name": "Foguete da Missão Apollo 11",
+        "value": 8000.0,
+        "imageUrl": "https://picsum.photos/300/300?random=2"
+    },
+    {
+        "id": 3,
+	    "name": "Foguete da Missão Apollo 11",
+        "value": 500.0,
+        "imageUrl": "https://picsum.photos/300/300?random=3"
+    },
+    {
+        "id": 4,
+	    "name": "Foguete da Missão Apollo 11",
+        "value": 100.0,
+        "imageUrl": "https://picsum.photos/300/300?random=4"
+    },
+    {
+        "id": 5,
+	    "name": "Foguete da Missão Apollo 11",
+        "value": 50.0,
+        "imageUrl": "https://picsum.photos/300/300?random=5"
+    },
+    {
+        "id": 6,
+	    "name": "Foguete da Missão Apollo 11",
+        "value": 1000.0,
+        "imageUrl": "https://picsum.photos/300/300?random=6"
+    }
+]
