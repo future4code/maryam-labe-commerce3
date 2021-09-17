@@ -9,46 +9,42 @@ const ContainerCart = styled.div`
     height: 600px;
 `
 const InfosCarrinho = styled.div`
-    display: grid;
-    grid-auto-flow: column;
+    display: flex;
     gap: 4px;
-    -webkit-box-align: center;
+    justify-content: space-between;
     align-items: center;
+
 `
 
-class Carrinho extends React.Component {
-    render() {
+function Carrinho (props) {
     return (
         <div>
         <ContainerCart>
             <h3>Carrinho</h3>
         
-        <InfosCarrinho>
-            <p>
-            1x
-            </p>
-            <p>Produto x</p>
-            <button>Remover</button>
-        </InfosCarrinho>
-
-        <InfosCarrinho>
-            <p>
-            2y
-            </p>
-            <p>Produto y</p>
-            <button>Remover</button>
-        </InfosCarrinho>
-
+        <div>
+            {props.productsInCart.map((product) => {
+                return (
+                <InfosCarrinho>
+                    <p>{product.itens}x</p>
+                    <p>{product.name}</p>
+                    <hr/>
+                    <button 
+                    onClick={() => props.removeProductCart(product.id)}
+                    >
+                    Remover
+                    </button>    
+                </InfosCarrinho>)
+            })}
+        </div>
         <p>
-            Valor total:
-            R$ 100,00
-            </p>
+            Valor da compra: R$ {props.finalPrice()},00
+        </p>
 
         </ContainerCart>
             
         </div>
-        );
-    }
+    );
 }
 
 export default Carrinho
