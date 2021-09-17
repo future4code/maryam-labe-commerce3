@@ -2,8 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import Carrinho from "./Components/ShoppingCart"
 import './App.css';
-// import Product from './Components/Product/Product';
-import { ListContainer } from './style';
 import Filter from './Components/Filter';
 import ProductList from './Data/Product.json'
 import Card from './Components/Card';
@@ -28,28 +26,85 @@ const TextoAcima = styled.div `
 
 
 class App extends React.Component {
+  
   state = {
-    products: ProductList
+    products: ProductList,
+    search: "",
+    minPrice: "",
+    maxPrice: "",
+    order: "",
+  }
+
+  updateSearch = (event) => {
+    this.setState({
+        search: event.target.value
+    })
+}
+
+  updateMinPrice = (event) => {
+    this.setState({
+      minPrice: event.target.value
+    })
+  }
+
+  updateMaxPrice = (event) => {
+    this.setState({
+      maxPrice: event.target.value
+    })
+  }
+
+  updateOrder = (event) => {
+    this.setState({
+      order: event.target.value
+    })
   }
 
 
   render () {
     return (
       <CotainerSite>
-        <Filter></Filter>
+        <Filter 
+          search={this.state.search} 
+          updateSearch={this.updateSearch}
+          minPrice={this.state.minPrice}
+          updateMinPrice={this.updateMinPrice}
+          maxPrice={this.state.maxPrice}
+          updateMaxPrice={this.updateMaxPrice}
+
+        />
         <div>
           <TextoAcima>
-            <p>Quantidade de protudos: 6</p>
+            <p>Quantidade de protudos: {this.state.products.length}</p>
             <label>
               Ordenação: 
-              <select>
+              <select value={this.state.order} onChange={this.updateOrder}>
+                <option value="" data-default disabled selected></option>
                 <option value="crescente">Crescente</option>
                 <option value="decrescente">Decrescente</option>
+                {this.state.order}
               </select>
             </label>
           </TextoAcima>
           <ContainerCards>
-            {this.state.products.map((product) => {
+            {this.state.products
+            .filter((product) => {
+              return product.name.toLowerCase().includes(this.state.search.toLowerCase())
+            })
+            .filter((product) => {
+              return (this.state.minPrice === "") || (this.state.minPrice <= product.value)
+            })
+            .filter((product) => {
+              return (this.state.maxPrice === "") || (this.state.maxPrice >= product.value)
+            })
+            .sort((currentProduct, nextProduct) => {
+              switch (this.state.order) {
+                case "crescente":
+                  return 1 * (currentProduct.value - nextProduct.value)
+                case "decrescente":
+                  return -1 * (currentProduct.value - nextProduct.value)
+              }
+            })
+            .map((product) => {
               return <Card key={product.id} product={product} />
             })}
           </ContainerCards>
@@ -59,6 +114,5 @@ class App extends React.Component {
     )
   }
 }
-
 
 export default App;
