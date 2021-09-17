@@ -21,7 +21,7 @@ function Card(props) {
     return (
             <ContainerCard>
                 <div>
-                    <img src={props.product.imageUrl}/>
+                    <img src={props.product.imageUrl} alt={props.product.name}/>
                 </div>
                 <h3>{props.product.name}</h3>
                 <p>R$ {props.product.value},00</p>

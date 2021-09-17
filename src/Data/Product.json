@@ -7,19 +7,19 @@
     },
     {   
         "id": 2,
-	    "name": "Foguete da Missão Apollo 11",
+	    "name": "Camiseta Astronauta",
         "value": 8000.0,
         "imageUrl": "https://picsum.photos/300/300?random=2"
     },
     {
         "id": 3,
-	    "name": "Foguete da Missão Apollo 11",
+	    "name": "Conjunto de itens espaciais",
         "value": 500.0,
         "imageUrl": "https://picsum.photos/300/300?random=3"
     },
     {
         "id": 4,
-	    "name": "Foguete da Missão Apollo 11",
+	    "name": "Pedaço do meteorito que caiu na Russia",
         "value": 100.0,
         "imageUrl": "https://picsum.photos/300/300?random=4"
     },

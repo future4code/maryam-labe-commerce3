@@ -13,24 +13,22 @@ const ContainerFilter = styled.div `
     }
 `
 
-
-class Filter extends React.Component {
-    render() {
-        return (
-            <div>
+function Filter (props) {
+    return (
+        <div>
                 <ContainerFilter>
                     <h2>Filtros</h2>
-                    <label for="valorMin">Valor mínimo: </label>
-                    <input type="number" id="valorMin" name="valorMin" min="0" max="infinite"/>
-                    <label for="valorMax">Valor máximo: </label>
-                    <input type="number" id="valorMax" name="valorMax" min="0" max="infinite"/>
-                    <label for="nomeProduto">Busca por nome: </label>
-                    <input type="text" id="nomeProduto" name="nomeProduto" placeholder="Produto"/>
+                    <label htmlFor="valorMin">Valor mínimo: </label>
+                    <input type="number" id="valorMin" name="valorMin" value={props.minPrice} onChange={props.updateMinPrice} min="0" max="infinite"/>
+                    <label htmlFor="valorMax">Valor máximo: </label>
+                    <input type="number" id="valorMax" name="valorMax" value={props.maxPrice} onChange={props.updateMaxPrice} min="0" max="infinite"/>
+                    <label htmlFor="nomeProduto">Busca por nome: </label>
+                    <input type="text" id="nomeProduto" name="nomeProduto" value={props.search} onChange={props.updateSearch} placeholder="Produto"/>
                 </ContainerFilter>
             </div>
-        )
-    } 
+    )
 }
+
 
 
 export default Filter
