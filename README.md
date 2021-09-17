@@ -1,13 +1,14 @@
 # Labe-commerce
 
 ## Projeto Space Odyssey - eCommerce
-Descrição do proejto
+Descrição do projeto
 
-* item 1
-* 
-* 
-*  
-* 
+* Filtro de compras (máximo e mínimo valor)
+* Filtro de busca (por nome de produto)
+* Ordenação (crescente e decrescente por preço)
+* Lista de produtos (adicionar produtos para compra)
+* Carrinho de produtos do cliente (Quantidade e nome de produto, e botão remover
+* Valor total da compra
 
 ## Logo
 <img width="300" src="https://user-images.githubusercontent.com/84817937/133864336-2b00655c-c0b6-4a57-9a37-21483ec2f9e7.png"/>
