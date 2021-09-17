@@ -33,6 +33,22 @@ class App extends React.Component {
     minPrice: "",
     maxPrice: "",
     order: "",
+    productsInCart: [
+      {
+        id: 1,
+        name: "Moletom Espacial - Kids",
+        value: 75.0,
+        imageUrl: "https://cdn.shopify.com/s/files/1/0261/2615/5855/products/KIDS-11-SPACEDUIT-ONESIE-INFANT-ONESIE-WHITE-GREY-FRONT_300x.png?v=1631644276",
+        itens: 1
+    },
+    {   
+        id: 2,
+        name: "Falcon F9 Camiseta - Feminino",
+        value: 30.0,
+        imageUrl: "https://cdn.shopify.com/s/files/1/0261/2615/5855/products/WOMENS-F9-T-SHIRT-CHARCOAL-BACKcopy_300x.png?v=1631678515",
+        itens: 2
+    }
+    ]
   }
 
   updateSearch = (event) => {
@@ -59,6 +75,60 @@ class App extends React.Component {
     })
   }
 
+  addToCart = (productId) => {
+    const productInCart = this.state.productsInCart.find(product => productId === product.id)
+    
+    if(productInCart) {
+      const newProductsInCart = this.state.productsInCart.map((product) => {
+        if(productId === product.id) {
+          return {
+            ...product,
+            itens: product.itens + 1
+          }
+        }
+
+        return product
+      })
+
+      this.setState({productsInCart: newProductsInCart})
+    } 
+    else {
+      const productToAdd = this.state.products.find(product => productId === product.id)
+
+      const newProductsInCart = [...this.state.productsInCart, {...productToAdd, itens: 1}]
+
+      this.setState({productsInCart: newProductsInCart})
+    }
+  }
+
+  removeProductCart = (productId) => {
+    const newProductsInCart = this.state.productsInCart.map((product) => {
+      if (productId === product.id) {
+        return {
+          ...product, 
+          itens: product.itens - 1 
+        }
+      }
+      return product
+    })
+    .filter((product) => {
+      return (product.itens > 0)
+    })
+
+    this.setState({
+      productsInCart: newProductsInCart
+    })
+  }
+
+  finalPrice = () => {
+    let totalPrice = 0
+
+    for(let product of this.state.productsInCart) {
+      totalPrice += product.value * product.itens
+    }
+
+    return totalPrice
+  }
 
   render () {
     return (
@@ -74,9 +144,9 @@ class App extends React.Component {
         />
         <div>
           <TextoAcima>
-            <p>Quantidade de protudos: {this.state.products.length}</p>
+            <p>Quantidade de produtos: {this.state.products.length}</p>
             <label>
-              Ordenação: 
+              Ordenação:
               <select value={this.state.order} onChange={this.updateOrder}>
                 <option value="" data-default disabled selected></option>
                 <option value="crescente">Crescente</option>
@@ -105,11 +175,15 @@ class App extends React.Component {
               }
             })
             .map((product) => {
-              return <Card key={product.id} product={product} />
+              return <Card addToCart={this.addToCart} key={product.id} product={product} />
             })}
           </ContainerCards>
         </div>
-        <Carrinho></Carrinho> 
+        <Carrinho
+          productsInCart={this.state.productsInCart}
+          removeProductCart={this.removeProductCart}
+          finalPrice={this.finalPrice}
+        /> 
     </CotainerSite>
     )
   }
