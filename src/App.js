@@ -5,6 +5,8 @@ import './App.css';
 import Filter from './Components/Filter';
 import ProductList from './Data/Product.json'
 import Card from './Components/Card';
+import Header from './Components/Header';
+
 
 const CotainerSite = styled.div `
   display: grid;
@@ -132,59 +134,62 @@ class App extends React.Component {
 
   render () {
     return (
-      <CotainerSite>
-        <Filter 
-          search={this.state.search} 
-          updateSearch={this.updateSearch}
-          minPrice={this.state.minPrice}
-          updateMinPrice={this.updateMinPrice}
-          maxPrice={this.state.maxPrice}
-          updateMaxPrice={this.updateMaxPrice}
+      <div>
+        <Header></Header>
+        <CotainerSite>
+          <Filter 
+            search={this.state.search} 
+            updateSearch={this.updateSearch}
+            minPrice={this.state.minPrice}
+            updateMinPrice={this.updateMinPrice}
+            maxPrice={this.state.maxPrice}
+            updateMaxPrice={this.updateMaxPrice}
 
-        />
-        <div>
-          <TextoAcima>
-            <p>Quantidade de produtos: {this.state.products.length}</p>
-            <label>
-              Ordenação:
-              <select value={this.state.order} onChange={this.updateOrder}>
-                <option value="" data-default disabled selected></option>
-                <option value="crescente">Crescente</option>
-                <option value="decrescente">Decrescente</option>
-                {this.state.order}
-              </select>
-            </label>
-          </TextoAcima>
-          <ContainerCards>
-            {this.state.products
-            .filter((product) => {
-              return product.name.toLowerCase().includes(this.state.search.toLowerCase())
-            })
-            .filter((product) => {
-              return (this.state.minPrice === "") || (this.state.minPrice <= product.value)
-            })
-            .filter((product) => {
-              return (this.state.maxPrice === "") || (this.state.maxPrice >= product.value)
-            })
-            .sort((currentProduct, nextProduct) => {
-              switch (this.state.order) {
-                case "crescente":
-                  return 1 * (currentProduct.value - nextProduct.value)
-                case "decrescente":
-                  return -1 * (currentProduct.value - nextProduct.value)
-              }
-            })
-            .map((product) => {
-              return <Card addToCart={this.addToCart} key={product.id} product={product} />
-            })}
-          </ContainerCards>
-        </div>
-        <Carrinho
-          productsInCart={this.state.productsInCart}
-          removeProductCart={this.removeProductCart}
-          finalPrice={this.finalPrice}
-        /> 
-    </CotainerSite>
+          />
+          <div>
+            <TextoAcima>
+              <p>Quantidade de produtos: {this.state.products.length}</p>
+              <label>
+                Ordenação:
+                <select value={this.state.order} onChange={this.updateOrder}>
+                  <option value="" data-default disabled selected></option>
+                  <option value="crescente">Crescente</option>
+                  <option value="decrescente">Decrescente</option>
+                  {this.state.order}
+                </select>
+              </label>
+            </TextoAcima>
+            <ContainerCards>
+              {this.state.products
+              .filter((product) => {
+                return product.name.toLowerCase().includes(this.state.search.toLowerCase())
+              })
+              .filter((product) => {
+                return (this.state.minPrice === "") || (this.state.minPrice <= product.value)
+              })
+              .filter((product) => {
+                return (this.state.maxPrice === "") || (this.state.maxPrice >= product.value)
+              })
+              .sort((currentProduct, nextProduct) => {
+                switch (this.state.order) {
+                  case "crescente":
+                    return 1 * (currentProduct.value - nextProduct.value)
+                  case "decrescente":
+                    return -1 * (currentProduct.value - nextProduct.value)
+                }
+              })
+              .map((product) => {
+                return <Card addToCart={this.addToCart} key={product.id} product={product} />
+              })}
+            </ContainerCards>
+          </div>
+          <Carrinho
+            productsInCart={this.state.productsInCart}
+            removeProductCart={this.removeProductCart}
+            finalPrice={this.finalPrice}
+          /> 
+      </CotainerSite>
+    </div>
     )
   }
 }
