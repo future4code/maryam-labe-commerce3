@@ -2,11 +2,12 @@ import React from "react";
 import styled from "styled-components";
 
 const ContainerCart = styled.div`
-    display: block;
-    padding: 8px;
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    border: 1px solid black;
+    padding: 5px;
     height: 600px;
+    color: white;
 `
 const InfosCarrinho = styled.div`
     display: flex;
@@ -14,25 +15,24 @@ const InfosCarrinho = styled.div`
     justify-content: space-between;
     align-items: center;
 
+    p {
+        text-align: center;
+    }
 `
 
 function Carrinho (props) {
     return (
         <div>
         <ContainerCart>
-            <h3>Carrinho</h3>
-        
+            <h3>Foguete 🚀</h3>
         <div>
             {props.productsInCart.map((product) => {
                 return (
                 <InfosCarrinho>
                     <p>{product.itens}x</p>
                     <p>{product.name}</p>
-                    <hr/>
-                    <button 
-                    onClick={() => props.removeProductCart(product.id)}
-                    >
-                    Remover
+                    <button onClick={() => props.removeProductCart(product.id)}>
+                        Remover
                     </button>    
                 </InfosCarrinho>)
             })}
