@@ -1,7 +1,8 @@
 # Labe-commerce
 
 ## Projeto Space Odyssey - eCommerce
-Projeto usando React, caracterizando uma lojinha de compras com a temática espacial. Nossa store contéms itens de vestuários infantis e adulto, todos com referência ao espaço, desde a concepção do site, até os itens de compras para o usuário. Foram desenvolvidos elementos para contrução do site usando html, CSS e JavaScript, aplicando as funções descritas abaixo:
+Projeto usando React, caracterizando uma lojinha de compras com a temática espacial. Nossa store Space Odyssey contém itens de vestuários infantis e adulto, todos com referência espacial, desde a concepção do site, até os itens de compras para o usuário. 
+Foram desenvolvidos elementos para construção do site usando html, CSS e JavaScript, aplicando as funções descritas abaixo:
 
 * Filtro de compras (máximo e mínimo valor)
 * Filtro de busca (por nome de produto)
