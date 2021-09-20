@@ -4,9 +4,10 @@ import styled from "styled-components";
 const ContainerFilter = styled.div `
     display: flex;
     flex-direction: column;
+    padding: 5px;
     align-items: center;
-    border: 1px solid black;
     height: 600px;
+    color: white;
 
     input {
         margin-bottom: 10px;
@@ -17,7 +18,7 @@ function Filter (props) {
     return (
         <div>
                 <ContainerFilter>
-                    <h2>Filtros</h2>
+                    <h3>Filtros</h3>
                     <label htmlFor="valorMin">Valor mínimo: </label>
                     <input type="number" id="valorMin" name="valorMin" value={props.minPrice} onChange={props.updateMinPrice} min="0" max="infinite"/>
                     <label htmlFor="valorMax">Valor máximo: </label>

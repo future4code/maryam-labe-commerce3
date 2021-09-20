@@ -41,7 +41,7 @@ const Botao = styled.button`
 `
 class Header extends React.Component {
     render(){
-    return (
+        return (
             <ContainerNav> 
                 
                 <LogoImagem src={logo} alt="logo-nave"/>
@@ -57,7 +57,7 @@ class Header extends React.Component {
                 </Botao>
             </ContainerNav>  
         );
-}
+    }
 }
 
 export default Header

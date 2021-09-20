@@ -2,18 +2,37 @@ import React from "react";
 import styled from "styled-components";
 
 const ContainerCard = styled.div `
-    border: 1px solid black;
-    width: 300px;
+    border: 2px solid black;
     display: flex;
     flex-direction: column;
     align-items: center;
+    box-shadow: 3px 3px 3px 2px #0e3364;
+    transition: all .2s ease-in-out;
+    &:hover{
+        top:-4px;box-shadow:3px 4px 3px  #999;
+    }
+
+    
 
     h3 {
         margin-bottom: -5px;
+        color: white;
+        text-align: center;
+    }
+
+    p {
+        color: white;
     }
 
     button {
         margin-bottom: 5px;
+        border-radius: 10px;
+        border: none;
+
+        &:hover{
+            background-color: #0c5e96;
+            color: white;
+        }
     }
 `
 
@@ -51,7 +70,7 @@ function Card(props) {
         },
         {
             id: 6,
-            name: "Projeto Nave - Kids",
+            name: "Projeto Nave - Kids Unisex",
             value: 30.0,
             imageUrl: "https://cdn.shopify.com/s/files/1/0261/2615/5855/products/KIDS-6-FALCON-1-T-SHIRT-CHARCOAL-BACK_300x.png?v=1631676603"
         }
@@ -64,7 +83,7 @@ function Card(props) {
                 </div>
                 <h3>{props.product.name}</h3>
                 <p>R$ {props.product.value},00</p>
-                <button  onClick={() => props.addToCart(props.product.id)}>Adicionar ao carrinho</button>
+                <button  onClick={() => props.addToCart(props.product.id)}>Adicionar ao foguete 🚀</button>
             </ContainerCard>
     )
 }

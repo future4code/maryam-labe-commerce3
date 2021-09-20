@@ -6,11 +6,20 @@ import Filter from './Components/Filter';
 import ProductList from './Data/Product.json'
 import Card from './Components/Card';
 import Header from './Components/Header';
+import Background2 from './imgs/background2.jpg'
+import Footer from './Components/Footer';
 
 
-const CotainerSite = styled.div `
+const ContainerSite = styled.div `
+  background-image: url(${Background2});
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+`
+
+const ContainerMain = styled.div `
   display: grid;
-  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 10px;
 `
 
@@ -24,6 +33,7 @@ const TextoAcima = styled.div `
   display: flex;
   align-items: center;
   justify-content: space-between;
+  color: white;
 `
 
 
@@ -134,62 +144,63 @@ class App extends React.Component {
 
   render () {
     return (
-      <div>
-        <Header></Header>
-        <CotainerSite>
-          <Filter 
-            search={this.state.search} 
-            updateSearch={this.updateSearch}
-            minPrice={this.state.minPrice}
-            updateMinPrice={this.updateMinPrice}
-            maxPrice={this.state.maxPrice}
-            updateMaxPrice={this.updateMaxPrice}
+        <ContainerSite>
+          <Header></Header>
+          <ContainerMain>
+            <Filter 
+              search={this.state.search} 
+              updateSearch={this.updateSearch}
+              minPrice={this.state.minPrice}
+              updateMinPrice={this.updateMinPrice}
+              maxPrice={this.state.maxPrice}
+              updateMaxPrice={this.updateMaxPrice}
 
-          />
-          <div>
-            <TextoAcima>
-              <p>Quantidade de produtos: {this.state.products.length}</p>
-              <label>
-                Ordenação:
-                <select value={this.state.order} onChange={this.updateOrder}>
-                  <option value="" data-default disabled selected></option>
-                  <option value="crescente">Crescente</option>
-                  <option value="decrescente">Decrescente</option>
-                  {this.state.order}
-                </select>
-              </label>
-            </TextoAcima>
-            <ContainerCards>
-              {this.state.products
-              .filter((product) => {
-                return product.name.toLowerCase().includes(this.state.search.toLowerCase())
-              })
-              .filter((product) => {
-                return (this.state.minPrice === "") || (this.state.minPrice <= product.value)
-              })
-              .filter((product) => {
-                return (this.state.maxPrice === "") || (this.state.maxPrice >= product.value)
-              })
-              .sort((currentProduct, nextProduct) => {
-                switch (this.state.order) {
-                  case "crescente":
-                    return 1 * (currentProduct.value - nextProduct.value)
-                  case "decrescente":
-                    return -1 * (currentProduct.value - nextProduct.value)
-                }
-              })
-              .map((product) => {
-                return <Card addToCart={this.addToCart} key={product.id} product={product} />
-              })}
-            </ContainerCards>
-          </div>
-          <Carrinho
-            productsInCart={this.state.productsInCart}
-            removeProductCart={this.removeProductCart}
-            finalPrice={this.finalPrice}
-          /> 
-      </CotainerSite>
-    </div>
+            />
+            <div>
+              <TextoAcima>
+                <p>Quantidade de produtos: {this.state.products.length}</p>
+                <label>
+                  Ordenação do preço:
+                  <select value={this.state.order} onChange={this.updateOrder}>
+                    <option value="" data-default disabled selected></option>
+                    <option value="crescente">Crescente</option>
+                    <option value="decrescente">Decrescente</option>
+                    {this.state.order}
+                  </select>
+                </label>
+              </TextoAcima>
+              <ContainerCards>
+                {this.state.products
+                .filter((product) => {
+                  return product.name.toLowerCase().includes(this.state.search.toLowerCase())
+                })
+                .filter((product) => {
+                  return (this.state.minPrice === "") || (this.state.minPrice <= product.value)
+                })
+                .filter((product) => {
+                  return (this.state.maxPrice === "") || (this.state.maxPrice >= product.value)
+                })
+                .sort((currentProduct, nextProduct) => {
+                  switch (this.state.order) {
+                    case "crescente":
+                      return 1 * (currentProduct.value - nextProduct.value)
+                    case "decrescente":
+                      return -1 * (currentProduct.value - nextProduct.value)
+                  }
+                })
+                .map((product) => {
+                  return <Card addToCart={this.addToCart} key={product.id} product={product} />
+                })}
+              </ContainerCards>
+            </div>
+            <Carrinho
+              productsInCart={this.state.productsInCart}
+              removeProductCart={this.removeProductCart}
+              finalPrice={this.finalPrice}
+            /> 
+        </ContainerMain>
+        <Footer></Footer>
+      </ContainerSite>
     )
   }
 }
