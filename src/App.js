@@ -142,7 +142,32 @@ class App extends React.Component {
     return totalPrice
   }
 
-  render () {
+  TotalProducts = () => {
+    const minProducts = this.state.products.filter((produto) => {
+      if (this.state.minPrice) {
+        return produto.value >= this.state.minPrice
+      } else {
+        return produto
+      }
+    })
+
+    const maxProducts = minProducts.filter((produto) => {
+      if (this.state.maxPrice) {
+        return produto.value <= this.state.maxPrice
+      } else {
+        return produto
+      }
+    })
+
+    const filterProducts = maxProducts.filter((produto) => {
+      return produto.name.includes(this.state.search)
+    })
+
+    return filterProducts
+  }
+
+  render () {    
+    const quantidadeProdutos = this.TotalProducts()  
     return (
         <ContainerSite>
           <Header></Header>
@@ -158,7 +183,7 @@ class App extends React.Component {
             />
             <div>
               <TextoAcima>
-                <p>Quantidade de produtos: {this.state.products.length}</p>
+                <p>Quantidade de produtos: {quantidadeProdutos.length}</p>
                 <label>
                   Ordenação do preço:
                   <select value={this.state.order} onChange={this.updateOrder}>
@@ -170,7 +195,7 @@ class App extends React.Component {
                 </label>
               </TextoAcima>
               <ContainerCards>
-                {this.state.products
+              {this.state.products
                 .filter((product) => {
                   return product.name.toLowerCase().includes(this.state.search.toLowerCase())
                 })
