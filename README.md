@@ -1,7 +1,7 @@
 # Labe-commerce
 
 ## Projeto Space Odyssey - eCommerce
-Descrição do projeto
+Projeto usando React, caracterizando uma lojinha de compras com a temática espacial. Nossa store contéms itens de vestuários infantis e adulto, todos com referência ao espaço, desde a concepção do site, até os itens de compras para o usuário. Foram desenvolvidos elementos para contrução do site usando html, CSS e JavaScript, aplicando as funções descritas abaixo:
 
 * Filtro de compras (máximo e mínimo valor)
 * Filtro de busca (por nome de produto)
@@ -19,15 +19,13 @@ Descrição do projeto
 2. Lucas Gomes de Souza
 3. Murilo Terenciani Carolino
 
-## Paleta de Cores
-
-
 ## Link do site no surge
 https://space-odyssey-store.surge.sh/
 
 ## Prints do site
-![image](https://user-images.githubusercontent.com/84817937/133864280-7923467a-7671-440e-b935-98c7bfbfa0a5.png)
-![image](https://user-images.githubusercontent.com/84817937/133864327-eaecd3a7-f485-4759-80ec-b6389b919161.png)
+![image](https://user-images.githubusercontent.com/84817937/133952666-2ed0cf39-7f59-4461-8b69-4b6100c772e8.png)
+![image](https://user-images.githubusercontent.com/84817937/133952673-f034e071-9fd2-4dff-820a-da198ef3c9ed.png)
+
 
 
 
