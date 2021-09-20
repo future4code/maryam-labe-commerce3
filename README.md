@@ -8,7 +8,7 @@ Foram desenvolvidos elementos para construção do site usando html, CSS e JavaS
 * Filtro de busca (por nome de produto)
 * Ordenação (crescente e decrescente por preço)
 * Lista de produtos (adicionar produtos para compra)
-* Carrinho de produtos do cliente (Quantidade e nome de produto, e botão remover
+* Carrinho de produtos do cliente (Quantidade e nome de produto, e botão remover)
 * Valor total da compra
 
 ## Logo
