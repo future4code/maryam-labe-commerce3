@@ -29,7 +29,6 @@ const ImagesIcons = styled.div `
         display: flex;
         width: 207px;
         justify-content: space-around;
-        margin-top: -7px;
         margin-bottom: 10px;
 
     img {
@@ -50,9 +49,9 @@ class Footer extends React.Component {
                 <Icons>
                     <p>Conheça nossas redes sociais:</p>
                     <ImagesIcons>
-                        <a href="https://www.instagram.com/" target="_blank"><img src={instagram} alter="Ícone Instagram"/></a>
-                        <a href="https://www.twitter.com/" target="_blank"><img src={twitter} alter="Ícone Twitter"/></a>
-                        <a href="https://www.facebook.com/" target="_blank"><img src={facebook} alter="Ícone Facebook"/></a>
+                        <a href="https://www.instagram.com/" target="_blank"><img src={instagram} alt="Ícone Instagram"/></a>
+                        <a href="https://www.twitter.com/" target="_blank"><img src={twitter} alt="Ícone Twitter"/></a>
+                        <a href="https://www.facebook.com/" target="_blank"><img src={facebook} alt="Ícone Facebook"/></a>
                     </ImagesIcons>
                 </Icons>
             </ContainerFooter>
